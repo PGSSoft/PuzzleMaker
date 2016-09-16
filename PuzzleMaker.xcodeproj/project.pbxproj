@@ -1,0 +1,624 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		48BAFF471D5CA4FC00AE346A /* PuzzleMakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BAFF461D5CA4FC00AE346A /* PuzzleMakerTests.swift */; };
+		48BAFF491D5CA4FC00AE346A /* PuzzleMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DC7DCC1D59E3260024C008 /* PuzzleMaker.framework */; };
+		48BAFF511D5CA5C300AE346A /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 48BAFF501D5CA5C300AE346A /* image.png */; };
+		48DC7DD01D59E3260024C008 /* PuzzleMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 48DC7DCF1D59E3260024C008 /* PuzzleMaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48DC7DD81D59EF740024C008 /* PuzzleMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DC7DD71D59EF740024C008 /* PuzzleMaker.swift */; };
+		48DC7DDA1D59EFB70024C008 /* PuzzleUnitFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DC7DD91D59EFB70024C008 /* PuzzleUnitFactory.swift */; };
+		48DC7DDC1D59EFF50024C008 /* PuzzleElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DC7DDB1D59EFF50024C008 /* PuzzleElement.swift */; };
+		48DC7DDE1D59F01A0024C008 /* PuzzleUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DC7DDD1D59F01A0024C008 /* PuzzleUnit.swift */; };
+		48DC7DE01D59F0330024C008 /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DC7DDF1D59F0330024C008 /* Segment.swift */; };
+		48DC7DE21D59F04C0024C008 /* CubicBezierCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DC7DE11D59F04C0024C008 /* CubicBezierCurve.swift */; };
+		48DC7DE41D59F0740024C008 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DC7DE31D59F0740024C008 /* Double+Extensions.swift */; };
+		48DC7DE61D59F0880024C008 /* Bool+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DC7DE51D59F0880024C008 /* Bool+Extensions.swift */; };
+		48DC7DE81D59F09A0024C008 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DC7DE71D59F09A0024C008 /* UIImage+Extensions.swift */; };
+		48DC7DEA1D59F0AE0024C008 /* UIBezierPath+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DC7DE91D59F0AE0024C008 /* UIBezierPath+Extensions.swift */; };
+		48EDA59C1D5B5F7B00518DF0 /* PuzzleMaker.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 48EDA59B1D5B5F7B00518DF0 /* PuzzleMaker.podspec */; };
+		48EDA5B41D5C69E800518DF0 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 48EDA5B31D5C69E800518DF0 /* LICENSE */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		48BAFF4A1D5CA4FC00AE346A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 48DC7DBE1D59E1B80024C008 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 48DC7DCB1D59E3260024C008;
+			remoteInfo = "PuzzleMaker iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		481D07501D5A077E0099CEDF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		48BAFF441D5CA4FC00AE346A /* PuzzleMakerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PuzzleMakerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		48BAFF461D5CA4FC00AE346A /* PuzzleMakerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleMakerTests.swift; sourceTree = "<group>"; };
+		48BAFF481D5CA4FC00AE346A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48BAFF501D5CA5C300AE346A /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
+		48DC7DCC1D59E3260024C008 /* PuzzleMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PuzzleMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48DC7DCF1D59E3260024C008 /* PuzzleMaker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PuzzleMaker.h; sourceTree = "<group>"; };
+		48DC7DD11D59E3260024C008 /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
+		48DC7DD71D59EF740024C008 /* PuzzleMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleMaker.swift; sourceTree = "<group>"; };
+		48DC7DD91D59EFB70024C008 /* PuzzleUnitFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleUnitFactory.swift; sourceTree = "<group>"; };
+		48DC7DDB1D59EFF50024C008 /* PuzzleElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleElement.swift; sourceTree = "<group>"; };
+		48DC7DDD1D59F01A0024C008 /* PuzzleUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleUnit.swift; sourceTree = "<group>"; };
+		48DC7DDF1D59F0330024C008 /* Segment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segment.swift; sourceTree = "<group>"; };
+		48DC7DE11D59F04C0024C008 /* CubicBezierCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubicBezierCurve.swift; sourceTree = "<group>"; };
+		48DC7DE31D59F0740024C008 /* Double+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		48DC7DE51D59F0880024C008 /* Bool+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bool+Extensions.swift"; sourceTree = "<group>"; };
+		48DC7DE71D59F09A0024C008 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		48DC7DE91D59F0AE0024C008 /* UIBezierPath+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Extensions.swift"; sourceTree = "<group>"; };
+		48EDA59B1D5B5F7B00518DF0 /* PuzzleMaker.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PuzzleMaker.podspec; path = ../PuzzleMaker.podspec; sourceTree = "<group>"; };
+		48EDA5B31D5C69E800518DF0 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		48BAFF411D5CA4FC00AE346A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48BAFF491D5CA4FC00AE346A /* PuzzleMaker.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48DC7DC81D59E3260024C008 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		481D07491D5A06880099CEDF /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				48DC7DE11D59F04C0024C008 /* CubicBezierCurve.swift */,
+				48DC7DDB1D59EFF50024C008 /* PuzzleElement.swift */,
+				48DC7DD91D59EFB70024C008 /* PuzzleUnitFactory.swift */,
+				48DC7DDD1D59F01A0024C008 /* PuzzleUnit.swift */,
+				48DC7DDF1D59F0330024C008 /* Segment.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		481D074B1D5A06D60099CEDF /* Foundation Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				48DC7DE51D59F0880024C008 /* Bool+Extensions.swift */,
+				48DC7DE31D59F0740024C008 /* Double+Extensions.swift */,
+				48DC7DE91D59F0AE0024C008 /* UIBezierPath+Extensions.swift */,
+				48DC7DE71D59F09A0024C008 /* UIImage+Extensions.swift */,
+			);
+			name = "Foundation Extensions";
+			sourceTree = "<group>";
+		};
+		481D074C1D5A070C0099CEDF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				48DC7DCF1D59E3260024C008 /* PuzzleMaker.h */,
+				48DC7DD11D59E3260024C008 /* Info-iOS.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		481D074D1D5A07420099CEDF /* Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				48EDA5B31D5C69E800518DF0 /* LICENSE */,
+				48EDA59B1D5B5F7B00518DF0 /* PuzzleMaker.podspec */,
+				481D07501D5A077E0099CEDF /* README.md */,
+			);
+			name = Metadata;
+			sourceTree = "<group>";
+		};
+		48BAFF451D5CA4FC00AE346A /* PuzzleMakerTests */ = {
+			isa = PBXGroup;
+			children = (
+				48BAFF4F1D5CA59D00AE346A /* Fixtures */,
+				48BAFF461D5CA4FC00AE346A /* PuzzleMakerTests.swift */,
+				48BAFF481D5CA4FC00AE346A /* Info.plist */,
+			);
+			path = PuzzleMakerTests;
+			sourceTree = "<group>";
+		};
+		48BAFF4F1D5CA59D00AE346A /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				48BAFF501D5CA5C300AE346A /* image.png */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		48DC7DBD1D59E1B80024C008 = {
+			isa = PBXGroup;
+			children = (
+				48DC7DD51D59EA9E0024C008 /* Sources */,
+				48BAFF451D5CA4FC00AE346A /* PuzzleMakerTests */,
+				48DC7DCD1D59E3260024C008 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		48DC7DCD1D59E3260024C008 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				48DC7DCC1D59E3260024C008 /* PuzzleMaker.framework */,
+				48BAFF441D5CA4FC00AE346A /* PuzzleMakerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		48DC7DD51D59EA9E0024C008 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				48DC7DD71D59EF740024C008 /* PuzzleMaker.swift */,
+				481D07491D5A06880099CEDF /* Core */,
+				481D074B1D5A06D60099CEDF /* Foundation Extensions */,
+				481D074D1D5A07420099CEDF /* Metadata */,
+				481D074C1D5A070C0099CEDF /* Supporting Files */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		48DC7DC91D59E3260024C008 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48DC7DD01D59E3260024C008 /* PuzzleMaker.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		48BAFF431D5CA4FC00AE346A /* PuzzleMakerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48BAFF4E1D5CA4FC00AE346A /* Build configuration list for PBXNativeTarget "PuzzleMakerTests" */;
+			buildPhases = (
+				48BAFF401D5CA4FC00AE346A /* Sources */,
+				48BAFF411D5CA4FC00AE346A /* Frameworks */,
+				48BAFF421D5CA4FC00AE346A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				48BAFF4B1D5CA4FC00AE346A /* PBXTargetDependency */,
+			);
+			name = PuzzleMakerTests;
+			productName = PuzzleMakerTests;
+			productReference = 48BAFF441D5CA4FC00AE346A /* PuzzleMakerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		48DC7DCB1D59E3260024C008 /* PuzzleMaker iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48DC7DD21D59E3260024C008 /* Build configuration list for PBXNativeTarget "PuzzleMaker iOS" */;
+			buildPhases = (
+				48DC7DC71D59E3260024C008 /* Sources */,
+				48DC7DC81D59E3260024C008 /* Frameworks */,
+				48DC7DC91D59E3260024C008 /* Headers */,
+				48DC7DCA1D59E3260024C008 /* Resources */,
+				48BB9E521D643B7500AEBE0A /* Swiftlint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PuzzleMaker iOS";
+			productName = "PuzzleMaker iOS";
+			productReference = 48DC7DCC1D59E3260024C008 /* PuzzleMaker.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		48DC7DBE1D59E1B80024C008 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0800;
+				TargetAttributes = {
+					48BAFF431D5CA4FC00AE346A = {
+						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
+					};
+					48DC7DCB1D59E3260024C008 = {
+						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
+					};
+				};
+			};
+			buildConfigurationList = 48DC7DC11D59E1B80024C008 /* Build configuration list for PBXProject "PuzzleMaker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 48DC7DBD1D59E1B80024C008;
+			productRefGroup = 48DC7DCD1D59E3260024C008 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				48DC7DCB1D59E3260024C008 /* PuzzleMaker iOS */,
+				48BAFF431D5CA4FC00AE346A /* PuzzleMakerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		48BAFF421D5CA4FC00AE346A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48BAFF511D5CA5C300AE346A /* image.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48DC7DCA1D59E3260024C008 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48EDA5B41D5C69E800518DF0 /* LICENSE in Resources */,
+				48EDA59C1D5B5F7B00518DF0 /* PuzzleMaker.podspec in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		48BB9E521D643B7500AEBE0A /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		48BAFF401D5CA4FC00AE346A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48BAFF471D5CA4FC00AE346A /* PuzzleMakerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48DC7DC71D59E3260024C008 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48DC7DDA1D59EFB70024C008 /* PuzzleUnitFactory.swift in Sources */,
+				48DC7DEA1D59F0AE0024C008 /* UIBezierPath+Extensions.swift in Sources */,
+				48DC7DE01D59F0330024C008 /* Segment.swift in Sources */,
+				48DC7DE41D59F0740024C008 /* Double+Extensions.swift in Sources */,
+				48DC7DDE1D59F01A0024C008 /* PuzzleUnit.swift in Sources */,
+				48DC7DE21D59F04C0024C008 /* CubicBezierCurve.swift in Sources */,
+				48DC7DDC1D59EFF50024C008 /* PuzzleElement.swift in Sources */,
+				48DC7DE81D59F09A0024C008 /* UIImage+Extensions.swift in Sources */,
+				48DC7DD81D59EF740024C008 /* PuzzleMaker.swift in Sources */,
+				48DC7DE61D59F0880024C008 /* Bool+Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		48BAFF4B1D5CA4FC00AE346A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 48DC7DCB1D59E3260024C008 /* PuzzleMaker iOS */;
+			targetProxy = 48BAFF4A1D5CA4FC00AE346A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		48BAFF4C1D5CA4FC00AE346A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = PuzzleMakerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PuzzleMakerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		48BAFF4D1D5CA4FC00AE346A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = PuzzleMakerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PuzzleMakerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		48DC7DC21D59E1B80024C008 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		48DC7DC31D59E1B80024C008 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		48DC7DD31D59E3260024C008 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info-iOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.puzzlemaker;
+				PRODUCT_NAME = PuzzleMaker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		48DC7DD41D59E3260024C008 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info-iOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.puzzlemaker;
+				PRODUCT_NAME = PuzzleMaker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		48BAFF4E1D5CA4FC00AE346A /* Build configuration list for PBXNativeTarget "PuzzleMakerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48BAFF4C1D5CA4FC00AE346A /* Debug */,
+				48BAFF4D1D5CA4FC00AE346A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		48DC7DC11D59E1B80024C008 /* Build configuration list for PBXProject "PuzzleMaker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48DC7DC21D59E1B80024C008 /* Debug */,
+				48DC7DC31D59E1B80024C008 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		48DC7DD21D59E3260024C008 /* Build configuration list for PBXNativeTarget "PuzzleMaker iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48DC7DD31D59E3260024C008 /* Debug */,
+				48DC7DD41D59E3260024C008 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 48DC7DBE1D59E1B80024C008 /* Project object */;
+}

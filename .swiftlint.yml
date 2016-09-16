@@ -1,0 +1,15 @@
+disabled_rules:
+  - line_length
+  - type_name
+  - file_length
+  
+function_body_length:
+  - 100 # warning
+  - 200 # error
+
+cyclomatic_complexity:
+  - 20 # warning
+  - 30 # error
+
+excluded:
+  - PuzzleMakerTests # due some Swift & Xcode constraints, some nasty stuff had had to be done, but everything was checked
