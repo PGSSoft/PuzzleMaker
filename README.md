@@ -20,7 +20,7 @@ The most convenient way to install it is by using [Cocoapods](https://cocoapods.
 pod 'PuzzleMaker'
 ```
 
-or using [Carthage](https://github.com/Carthage/Carthage) and add a line to `Cartfile.private`:
+or using [Carthage](https://github.com/Carthage/Carthage) and add a line to `Cartfile`:
 
 ```
 github "PGSSoft/PuzzleMaker"
