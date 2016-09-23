@@ -1,0 +1,5 @@
+language: objective-c
+osx_image: xcode8
+
+script:
+- xcodebuild -workspace PuzzleMaker.xcworkspace -scheme PuzzleMakerTests -destination "platform=iOS Simulator,name=iPhone 7,OS=10.0" test | xcpretty -c
