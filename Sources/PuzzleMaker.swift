@@ -196,7 +196,7 @@ public struct PuzzleMaker {
 		_ = group.wait(timeout: DispatchTime.distantFuture)
 		mainQueue.async {
 			let executionTime = Date().timeIntervalSince(start)
-			print("Puzzles generated in: \(executionTime) second(s)")
+			debugPrint("Puzzles generated in: \(executionTime) second(s)")
 
 			DispatchQueue.main.async {
 				if !invalidImageSize {

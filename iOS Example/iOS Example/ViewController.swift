@@ -33,7 +33,7 @@ class ViewController: UIViewController {
 				}
 
 			} catch let error {
-				print(error)
+				debugPrint(error)
 			}
 		}
 	}
