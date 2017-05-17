@@ -10,9 +10,9 @@ import Foundation
 
 extension UIBezierPath {
 
-	// MARK: Methods
+    // MARK: Methods
 
-	/**
+    /**
 	 Initializes new bezier path with start point and returns function which can be used to add more points to the path
 
 	 - attention:
@@ -22,14 +22,14 @@ extension UIBezierPath {
 
 	 - returns: Function which can be used to add more points to the path
 	 */
-	public static func pathMaker(forFirstPoint firstPoint: CGPoint) -> ([CubicBezierCurve]) -> UIBezierPath {
-		let path = UIBezierPath()
-		path.move(to: firstPoint)
-		return { cubicBeziers in
-			cubicBeziers.forEach { (cubicBezier) in
-				path.addCurve(to: cubicBezier.point, controlPoint1: cubicBezier.controlPoint1, controlPoint2: cubicBezier.controlPoint2)
-			}
-			return path
-		}
-	}
+    public static func pathMaker(forFirstPoint firstPoint: CGPoint) -> ([CubicBezierCurve]) -> UIBezierPath {
+        let path = UIBezierPath()
+        path.move(to: firstPoint)
+        return { cubicBeziers in
+            cubicBeziers.forEach { (cubicBezier) in
+                path.addCurve(to: cubicBezier.point, controlPoint1: cubicBezier.controlPoint1, controlPoint2: cubicBezier.controlPoint2)
+            }
+            return path
+        }
+    }
 }

@@ -13,14 +13,14 @@ import Foundation
  */
 public struct PuzzleElement {
 
-	// MARK: Properties
+    // MARK: Properties
 
-	/// Cropped and clipped image with additional effects: two inner shadows (light and dark to make it "more real")
-	public let image: UIImage
+    /// Cropped and clipped image with additional effects: two inner shadows (light and dark to make it "more real")
+    public let image: UIImage
 
-	/// Exact position on the board. Includes offset and additional size added due to outer edges
-	public let position: CGPoint
+    /// Exact position on the board. Includes offset and additional size added due to outer edges
+    public let position: CGPoint
 
-	/// Holds information about path and segments. For information purposes only
-	public let puzzleUnit: PuzzleUnit
+    /// Holds information about path and segments. For information purposes only
+    public let puzzleUnit: PuzzleUnit
 }

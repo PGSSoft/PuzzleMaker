@@ -13,14 +13,14 @@ import Foundation
  */
 public struct CubicBezierCurve {
 
-	// MARK: Properties
+    // MARK: Properties
 
-	/// The end point of the curve
-	public let point: CGPoint
+    /// The end point of the curve
+    public let point: CGPoint
 
-	/// The first control point to use when computing the curve
-	public let controlPoint1: CGPoint
+    /// The first control point to use when computing the curve
+    public let controlPoint1: CGPoint
 
-	/// The second control point to use when computing the curve
-	public let controlPoint2: CGPoint
+    /// The second control point to use when computing the curve
+    public let controlPoint2: CGPoint
 }

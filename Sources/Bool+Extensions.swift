@@ -10,10 +10,10 @@ import Foundation
 
 extension Bool {
 
-	// MARK: Properties
+    // MARK: Properties
 
-	/// Returns random value, true or false
-	public static var random: Bool {
-		return Double.randomInRange(0, 1) > 0.5
-	}
+    /// Returns random value, true or false
+    public static var random: Bool {
+        return Double.randomInRange(0, 1) > 0.5
+    }
 }

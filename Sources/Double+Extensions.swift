@@ -12,8 +12,8 @@ extension Double {
 
     // MARK: Properties
 
-	/// Returns random double number between two values
-	public static var randomInRange: (_ lower: Double, _ upper: Double) -> Double = { lower, upper in
-		return (Double(arc4random()) / 0xffffffff) * (upper - lower) + lower
-	}
+    /// Returns random double number between two values
+    public static var randomInRange: (_ lower: Double, _ upper: Double) -> Double = { lower, upper in
+        return (Double(arc4random()) / 0xffffffff) * (upper - lower) + lower
+    }
 }

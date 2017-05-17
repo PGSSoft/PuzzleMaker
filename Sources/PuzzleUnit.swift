@@ -16,30 +16,30 @@ import Foundation
  */
 public struct PuzzleUnit {
 
-	// MARK: Properties
+    // MARK: Properties
 
-	/// Top segment
-	/// - attention:
-	/// Never rotated to simplify future calculations
-	public let topSegment: Segment
+    /// Top segment
+    /// - attention:
+    /// Never rotated to simplify future calculations
+    public let topSegment: Segment
 
-	/// Right segment
-	/// - attention:
-	/// Never rotated to simplify future calculations
-	public let rightSegment: Segment
+    /// Right segment
+    /// - attention:
+    /// Never rotated to simplify future calculations
+    public let rightSegment: Segment
 
-	/// Bottom segment
-	/// - attention:
-	/// Never rotated to simplify future calculations
-	public let bottomSegment: Segment
+    /// Bottom segment
+    /// - attention:
+    /// Never rotated to simplify future calculations
+    public let bottomSegment: Segment
 
-	/// Left segment
-	/// - attention:
-	/// Never rotated to simplify future calculations
-	public let leftSegment: Segment
+    /// Left segment
+    /// - attention:
+    /// Never rotated to simplify future calculations
+    public let leftSegment: Segment
 
-	/// Final path which is a concatenation of all four segments
-	/// - attention:
-	/// Path is built from rotated segments
-	public let path: UIBezierPath
+    /// Final path which is a concatenation of all four segments
+    /// - attention:
+    /// Path is built from rotated segments
+    public let path: UIBezierPath
 }

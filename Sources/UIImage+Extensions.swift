@@ -10,7 +10,7 @@ import Foundation
 
 extension UIImage {
 
-	// MARK: Methods
+    // MARK: Methods
 
 	/**
 	 Crops image to a rect
