@@ -6,7 +6,7 @@
 //
 //
 
-import Foundation
+import UIKit
 
 /**
  Errors which can occur while generating puzzles

@@ -6,7 +6,7 @@
 //
 //
 
-import Foundation
+import UIKit
 
 /**
  *  Describes single cubic Bézier curve

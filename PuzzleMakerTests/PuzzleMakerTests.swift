@@ -121,7 +121,7 @@ class PuzzleMakerTests: XCTestCase {
     func testScaledSegment() {
         var scaledSegment = PuzzleUnitFactory.segmentPattern
         let scale = CGSize(width: 100, height: 150)
-        scaledSegment.scale(sxFactor: scale.width, syFactor: scale.height)
+        scaledSegment.scale(scale.width, syFactor: scale.height)
         checkScaledSegment(scaledSegment, scale: scale)
     }
 

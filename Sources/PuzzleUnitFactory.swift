@@ -6,7 +6,7 @@
 //
 //
 
-import Foundation
+import UIKit
 
 /**
  Forces proper action which should be performed for specific edge (segment), in order to generate complete puzzle unit
@@ -70,7 +70,7 @@ public struct PuzzleUnitFactory {
             topSegment.makeFlat()
             fallthrough
         case .missing:
-            topSegment.scale(sxFactor: size.width, syFactor: size.height)
+            topSegment.scale(size.width, syFactor: size.height)
         case .mirror(var segment):
             segment.mirror()
             topSegment = segment
@@ -85,7 +85,7 @@ public struct PuzzleUnitFactory {
             rightSegment.makeFlat()
             fallthrough
         case .missing:
-            rightSegment.scale(sxFactor: size.height, syFactor: size.height)
+            rightSegment.scale(size.height, syFactor: size.height)
             if Bool.random { // Pick up randomly whether segment should be 'outer' or 'inner'
                 rightSegment.mirror()
             }
@@ -104,7 +104,7 @@ public struct PuzzleUnitFactory {
             bottomSegment.makeFlat()
             fallthrough
         case .missing:
-            bottomSegment.scale(sxFactor: size.width, syFactor: size.width)
+            bottomSegment.scale(size.width, syFactor: size.width)
             if Bool.random {
                 bottomSegment.mirror()
             }
@@ -124,7 +124,7 @@ public struct PuzzleUnitFactory {
             leftSegment.makeFlat()
             fallthrough
         case .missing:
-            leftSegment.scale(sxFactor: size.height, syFactor: size.height)
+            leftSegment.scale(size.height, syFactor: size.height)
         case .mirror(var segment):
             segment.mirror()
             leftSegment = segment

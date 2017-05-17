@@ -6,7 +6,7 @@
 //
 //
 
-import Foundation
+import UIKit
 
 /**
  *  Describes single puzzle unit, which is a collection of a cubic bezier curves in fact.

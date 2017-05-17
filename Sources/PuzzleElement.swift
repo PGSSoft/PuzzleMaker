@@ -6,7 +6,7 @@
 //
 //
 
-import Foundation
+import UIKit
 
 /**
  *  Describes single puzzle element, which holds prepared image, position on the board and puzzle unit which provides detailed information about path

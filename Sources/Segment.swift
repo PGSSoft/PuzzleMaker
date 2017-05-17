@@ -6,7 +6,7 @@
 //
 //
 
-import Foundation
+import UIKit
 
 /**
  *  Describes single edge of the puzzle unit, which is a concatenation of many cubic Bézier curves
@@ -73,7 +73,7 @@ public struct Segment {
 	 - parameter sxFactor: The factor by which to scale the x-axis of the coordinate system
 	 - parameter syFactor: The factor by which to scale the y-axis of the coordinate system
 	 */
-    public mutating func scale(sxFactor: CGFloat, syFactor: CGFloat) {
+    public mutating func scale(_ sxFactor: CGFloat, syFactor: CGFloat) {
         var cubicBezierCurvesTmp = [CubicBezierCurve]()
         cubicBezierCurves.forEach { (cubicBezier) in
             let transform = CGAffineTransform(scaleX: sxFactor, y: syFactor)
@@ -93,7 +93,7 @@ public struct Segment {
     public mutating func rotate(forYValue tyValue: CGFloat) {
         var cubicBezierCurvesTmp = [CubicBezierCurve]()
         cubicBezierCurves.forEach { (cubicBezier) in
-            let transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi/2)).translatedBy(x: 0, y: tyValue)
+            let transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2)).translatedBy(x: 0, y: tyValue)
             let point = cubicBezier.point.applying(transform)
             let controlPoint1 = cubicBezier.controlPoint1.applying(transform)
             let controlPoint2 = cubicBezier.controlPoint2.applying(transform)
