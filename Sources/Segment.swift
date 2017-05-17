@@ -93,7 +93,7 @@ public struct Segment {
     public mutating func rotate(forYValue tyValue: CGFloat) {
         var cubicBezierCurvesTmp = [CubicBezierCurve]()
         cubicBezierCurves.forEach { (cubicBezier) in
-            let transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI_2)).translatedBy(x: 0, y: tyValue)
+            let transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi/2)).translatedBy(x: 0, y: tyValue)
             let point = cubicBezier.point.applying(transform)
             let controlPoint1 = cubicBezier.controlPoint1.applying(transform)
             let controlPoint2 = cubicBezier.controlPoint2.applying(transform)
