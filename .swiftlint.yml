@@ -2,6 +2,7 @@ disabled_rules:
   - line_length
   - type_name
   - file_length
+  - fallthrough
   
 function_body_length:
   - 100 # warning
