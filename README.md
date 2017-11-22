@@ -4,7 +4,7 @@
 
 `PuzzleMaker` is a library written in Swift, which dynamically generates set of puzzles from the image.
 
-[![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)](https://swift.org/)
+[![Swift 4.0](https://img.shields.io/badge/Swift-4.0-green.svg?style=flat)](https://swift.org/)
 [![Travis](https://travis-ci.org/PGSSoft/PuzzleMaker.svg?branch=master)](https://travis-ci.org/PGSSoft/PuzzleMaker.svg?branch=master)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/PuzzleMaker.svg)](https://cocoapods.org/pods/PuzzleMaker)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
