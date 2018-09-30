@@ -17,7 +17,7 @@
                BlueprintIdentifier = "48DC7DCB1D59E3260024C008"
                BuildableName = "PuzzleMaker.framework"
                BlueprintName = "PuzzleMaker iOS"
-               ReferencedContainer = "container:4.2.xcodeproj">
+               ReferencedContainer = "container:PuzzleMaker.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "48BAFF431D5CA4FC00AE346A"
                BuildableName = "PuzzleMakerTests.xctest"
                BlueprintName = "PuzzleMakerTests"
-               ReferencedContainer = "container:4.2.xcodeproj">
+               ReferencedContainer = "container:PuzzleMaker.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -45,7 +45,7 @@
             BlueprintIdentifier = "48DC7DCB1D59E3260024C008"
             BuildableName = "PuzzleMaker.framework"
             BlueprintName = "PuzzleMaker iOS"
-            ReferencedContainer = "container:4.2.xcodeproj">
+            ReferencedContainer = "container:PuzzleMaker.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -67,7 +67,7 @@
             BlueprintIdentifier = "48DC7DCB1D59E3260024C008"
             BuildableName = "PuzzleMaker.framework"
             BlueprintName = "PuzzleMaker iOS"
-            ReferencedContainer = "container:4.2.xcodeproj">
+            ReferencedContainer = "container:PuzzleMaker.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -85,7 +85,7 @@
             BlueprintIdentifier = "48DC7DCB1D59E3260024C008"
             BuildableName = "PuzzleMaker.framework"
             BlueprintName = "PuzzleMaker iOS"
-            ReferencedContainer = "container:4.2.xcodeproj">
+            ReferencedContainer = "container:PuzzleMaker.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
