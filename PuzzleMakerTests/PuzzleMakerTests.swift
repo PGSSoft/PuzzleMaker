@@ -215,9 +215,9 @@ class PuzzleMakerTests: XCTestCase {
         let segmentPattern = PuzzleUnitFactory.segmentPattern
         XCTAssertTrue(segment.cubicBezierCurves.count == 4)
         for (idx, cubicBezierCurve) in segment.cubicBezierCurves.enumerated() {
-            XCTAssertTrue(fabs(cubicBezierCurve.point.y) - fabs(segmentPattern.cubicBezierCurves[idx].point.y) == 0.0)
-            XCTAssertTrue(fabs(cubicBezierCurve.controlPoint1.y) - fabs(segmentPattern.cubicBezierCurves[idx].controlPoint1.y) == 0.0)
-            XCTAssertTrue(fabs(cubicBezierCurve.controlPoint2.y) - fabs(segmentPattern.cubicBezierCurves[idx].controlPoint2.y) == 0.0)
+            XCTAssertTrue(abs(cubicBezierCurve.point.y) - abs(segmentPattern.cubicBezierCurves[idx].point.y) == 0.0)
+            XCTAssertTrue(abs(cubicBezierCurve.controlPoint1.y) - abs(segmentPattern.cubicBezierCurves[idx].controlPoint1.y) == 0.0)
+            XCTAssertTrue(abs(cubicBezierCurve.controlPoint2.y) - abs(segmentPattern.cubicBezierCurves[idx].controlPoint2.y) == 0.0)
         }
     }
 
@@ -238,12 +238,12 @@ class PuzzleMakerTests: XCTestCase {
         let segmentPattern = PuzzleUnitFactory.segmentPattern
         XCTAssertTrue(segment.cubicBezierCurves.count == 4)
         for (idx, cubicBezierCurve) in segment.cubicBezierCurves.enumerated() {
-            XCTAssertTrue(fabs(cubicBezierCurve.point.x) == fabs(segmentPattern.cubicBezierCurves[idx].point.x * scale.width))
-            XCTAssertTrue(fabs(cubicBezierCurve.point.y) == fabs(segmentPattern.cubicBezierCurves[idx].point.y * scale.height))
-            XCTAssertTrue(fabs(cubicBezierCurve.controlPoint1.x) == fabs(segmentPattern.cubicBezierCurves[idx].controlPoint1.x * scale.width))
-            XCTAssertTrue(fabs(cubicBezierCurve.controlPoint1.y) == fabs(segmentPattern.cubicBezierCurves[idx].controlPoint1.y * scale.height))
-            XCTAssertTrue(fabs(cubicBezierCurve.controlPoint2.x) == fabs(segmentPattern.cubicBezierCurves[idx].controlPoint2.x * scale.width))
-            XCTAssertTrue(fabs(cubicBezierCurve.controlPoint2.y) == fabs(segmentPattern.cubicBezierCurves[idx].controlPoint2.y * scale.height))
+            XCTAssertTrue(abs(cubicBezierCurve.point.x) == abs(segmentPattern.cubicBezierCurves[idx].point.x * scale.width))
+            XCTAssertTrue(abs(cubicBezierCurve.point.y) == abs(segmentPattern.cubicBezierCurves[idx].point.y * scale.height))
+            XCTAssertTrue(abs(cubicBezierCurve.controlPoint1.x) == abs(segmentPattern.cubicBezierCurves[idx].controlPoint1.x * scale.width))
+            XCTAssertTrue(abs(cubicBezierCurve.controlPoint1.y) == abs(segmentPattern.cubicBezierCurves[idx].controlPoint1.y * scale.height))
+            XCTAssertTrue(abs(cubicBezierCurve.controlPoint2.x) == abs(segmentPattern.cubicBezierCurves[idx].controlPoint2.x * scale.width))
+            XCTAssertTrue(abs(cubicBezierCurve.controlPoint2.y) == abs(segmentPattern.cubicBezierCurves[idx].controlPoint2.y * scale.height))
         }
     }
 
