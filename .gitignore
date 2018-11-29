@@ -1,7 +1,9 @@
-# Xcode
-#
-# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+# Adapted from https://github.com/github/gitignore/blob/master/Swift.gitignore
 
+# Finder
+.DS_Store
+
+# Xcode
 ## Build generated
 build/
 DerivedData/

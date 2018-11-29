@@ -29,7 +29,7 @@ github "PGSSoft/PuzzleMaker"
 
 ## Requirements
 
-iOS 8.4
+iOS 8.0
 
 ## Usage
 

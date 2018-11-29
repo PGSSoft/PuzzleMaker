@@ -6,6 +6,6 @@ Pod::Spec.new do |s|
     s.homepage = 'https://github.com/PGSSoft/PuzzleMaker'
     s.authors = { 'Paweł Kania' => 'pkania@pgs-soft.com' }
     s.source = { :git => 'https://github.com/PGSSoft/PuzzleMaker.git', :tag => s.version }
-    s.ios.deployment_target = '8.4'
+    s.ios.deployment_target = '8.0'
     s.source_files = 'Sources/{*.swift}'
 end

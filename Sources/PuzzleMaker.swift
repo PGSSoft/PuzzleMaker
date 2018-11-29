@@ -71,10 +71,10 @@ public struct PuzzleMaker {
         let group = DispatchGroup()
 
         // Multidimensional array for final puzzle elements
-        var puzzleElements = [[PuzzleElement!]](repeating: [PuzzleElement!](repeating: nil, count: numColumns), count: numRows)
+        var puzzleElements = [[PuzzleElement?]](repeating: [PuzzleElement?](repeating: nil, count: numColumns), count: numRows)
 
         // First, all puzzle units must be generated and stored somewhere
-        var puzzleUnits = [[PuzzleUnit!]](repeating: [PuzzleUnit!](repeating: nil, count: numColumns), count: numRows)
+        var puzzleUnits = [[PuzzleUnit?]](repeating: [PuzzleUnit?](repeating: nil, count: numColumns), count: numRows)
         var puzzleUnit: PuzzleUnit!
 
         // Flag which indicates if there was a problem in generating at least one puzzle element. True means total failure and raises exception
@@ -150,7 +150,7 @@ public struct PuzzleMaker {
                         return
                     }
 
-                    let puzzleUnit: PuzzleUnit = puzzleUnits[row][column]
+                    let puzzleUnit: PuzzleUnit = puzzleUnits[row][column]!
                     let path = puzzleUnit.path
 
                     // Because we must fix X and Y position, we need to know offset. Outer height for top and left segment will be useful
@@ -200,7 +200,7 @@ public struct PuzzleMaker {
 
             DispatchQueue.main.async {
                 if !invalidImageSize {
-                    completion({ puzzleElements })
+                    completion({ puzzleElements.compactMap { $0.compactMap { $0 } } })
                 } else {
                     completion({ throw PuzzleMakerError.invalidImageSize })
                 }
