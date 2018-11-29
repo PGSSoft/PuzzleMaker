@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:/Users/kellyroach/Fork/PGSSoft/PuzzleMaker/PuzzleMaker.xcodeproj">
+      location = "group:PuzzleMaker.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:iOS Example/iOS Example.xcodeproj">
