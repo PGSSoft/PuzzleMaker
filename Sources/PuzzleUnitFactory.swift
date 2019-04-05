@@ -86,7 +86,7 @@ public struct PuzzleUnitFactory {
             fallthrough
         case .missing:
             rightSegment.scale(size.height, syFactor: size.height)
-            if Bool.random { // Pick up randomly whether segment should be 'outer' or 'inner'
+            if Bool.random() { // Pick up randomly whether segment should be 'outer' or 'inner'
                 rightSegment.mirror()
             }
         case var .mirror(segment):
@@ -105,7 +105,7 @@ public struct PuzzleUnitFactory {
             fallthrough
         case .missing:
             bottomSegment.scale(size.width, syFactor: size.width)
-            if Bool.random {
+            if Bool.random() {
                 bottomSegment.mirror()
             }
         case var .mirror(segment):

@@ -18,7 +18,6 @@
 		48DC7DDE1D59F01A0024C008 /* PuzzleUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DC7DDD1D59F01A0024C008 /* PuzzleUnit.swift */; };
 		48DC7DE01D59F0330024C008 /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DC7DDF1D59F0330024C008 /* Segment.swift */; };
 		48DC7DE21D59F04C0024C008 /* CubicBezierCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DC7DE11D59F04C0024C008 /* CubicBezierCurve.swift */; };
-		48DC7DE61D59F0880024C008 /* Bool+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DC7DE51D59F0880024C008 /* Bool+Extensions.swift */; };
 		48DC7DE81D59F09A0024C008 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DC7DE71D59F09A0024C008 /* UIImage+Extensions.swift */; };
 		48DC7DEA1D59F0AE0024C008 /* UIBezierPath+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DC7DE91D59F0AE0024C008 /* UIBezierPath+Extensions.swift */; };
 		48EDA59C1D5B5F7B00518DF0 /* PuzzleMaker.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 48EDA59B1D5B5F7B00518DF0 /* PuzzleMaker.podspec */; };
@@ -51,7 +50,6 @@
 		48DC7DDD1D59F01A0024C008 /* PuzzleUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleUnit.swift; sourceTree = "<group>"; };
 		48DC7DDF1D59F0330024C008 /* Segment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segment.swift; sourceTree = "<group>"; };
 		48DC7DE11D59F04C0024C008 /* CubicBezierCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubicBezierCurve.swift; sourceTree = "<group>"; };
-		48DC7DE51D59F0880024C008 /* Bool+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bool+Extensions.swift"; sourceTree = "<group>"; };
 		48DC7DE71D59F09A0024C008 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		48DC7DE91D59F0AE0024C008 /* UIBezierPath+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Extensions.swift"; sourceTree = "<group>"; };
 		48EDA59B1D5B5F7B00518DF0 /* PuzzleMaker.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PuzzleMaker.podspec; path = ../PuzzleMaker.podspec; sourceTree = "<group>"; };
@@ -93,7 +91,6 @@
 			isa = PBXGroup;
 			children = (
 				487E92E3225635BF00AAC84D /* Array+Extensions.swift */,
-				48DC7DE51D59F0880024C008 /* Bool+Extensions.swift */,
 				48DC7DE91D59F0AE0024C008 /* UIBezierPath+Extensions.swift */,
 				48DC7DE71D59F09A0024C008 /* UIImage+Extensions.swift */,
 			);
@@ -316,7 +313,6 @@
 				48DC7DDC1D59EFF50024C008 /* PuzzleElement.swift in Sources */,
 				48DC7DE81D59F09A0024C008 /* UIImage+Extensions.swift in Sources */,
 				48DC7DD81D59EF740024C008 /* PuzzleMaker.swift in Sources */,
-				48DC7DE61D59F0880024C008 /* Bool+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
