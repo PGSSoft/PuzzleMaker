@@ -8,6 +8,8 @@
 
 import UIKit
 
+public typealias AdjustableShadow = (color: UIColor, offset: CGSize, blurRadius: CGFloat)
+
 /**
  Errors which can occur while generating puzzles
 
@@ -34,6 +36,12 @@ public struct PuzzleMaker {
     /// Number of columns
     public let numColumns: Int
 
+    // Darkening shadow which will be applied to each puzzle unit individually
+    public let darkInnerShadow: AdjustableShadow
+
+    // Lightening shadow which will be applied to each puzzle unit individually
+    public let lightInnerShadow: AdjustableShadow
+
     /// Size of the single puzzle item (not puzzle element!) which is a result of size of the source image and number of rows and columns
     public var puzzleUnitSize: CGSize {
         return CGSize(width: image.size.width / CGFloat(numColumns), height: image.size.height / CGFloat(numRows))
@@ -44,10 +52,16 @@ public struct PuzzleMaker {
 
     // MARK: Initializers
 
-    public init(image: UIImage, numRows: Int, numColumns: Int) { // We have to override default memberwise initializer 😑
+    public init(image: UIImage,
+                numRows: Int,
+                numColumns: Int,
+                darkInnerShadow: AdjustableShadow = (color: UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.75), offset: CGSize(width: -1, height: -1), blurRadius: 2),
+                lightInnerShadow: AdjustableShadow = (color: UIColor(red: 1, green: 1, blue: 1, alpha: 0.75), offset: CGSize(width: 1, height: 1), blurRadius: 2)) {
         self.image = image
         self.numRows = numRows
         self.numColumns = numColumns
+        self.darkInnerShadow = darkInnerShadow
+        self.lightInnerShadow = lightInnerShadow
     }
 
     // MARK: Methods
@@ -190,8 +204,8 @@ public struct PuzzleMaker {
                         // Clipping image using previously generated path
                         let clippedImage = croppedImage.clipImage(toPath: path),
                         // Now it's time to cheat human eye by adding two inner shadows (most time consuming part...)
-                        let imageWithDarkInnerShadow = clippedImage.applyInnerShadow(forPath: path, shadowColor: UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.75), shadowOffset: CGSize(width: -1, height: -1), shadowBlurRadius: 2),
-                        let imageWithLightInnerShadow = imageWithDarkInnerShadow.applyInnerShadow(forPath: path, shadowColor: UIColor(red: 1, green: 1, blue: 1, alpha: 0.75), shadowOffset: CGSize(width: 1, height: 1), shadowBlurRadius: 2) {
+                        let imageWithDarkInnerShadow = clippedImage.applyInnerShadow(forPath: path, shadowColor: self.darkInnerShadow.color, shadowOffset: self.darkInnerShadow.offset, shadowBlurRadius: self.darkInnerShadow.blurRadius),
+                        let imageWithLightInnerShadow = imageWithDarkInnerShadow.applyInnerShadow(forPath: path, shadowColor: self.lightInnerShadow.color, shadowOffset: self.lightInnerShadow.offset, shadowBlurRadius: self.lightInnerShadow.blurRadius) {
 
                         // Finally! We got it! 🙌
                         let puzzleElement = PuzzleElement(image: imageWithLightInnerShadow, position: realPosition, puzzleUnit: puzzleUnit)
