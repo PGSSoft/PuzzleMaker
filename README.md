@@ -4,7 +4,7 @@
 
 `PuzzleMaker` is a library written in Swift, which dynamically generates set of puzzles from the image.
 
-[![Swift 4.0](https://img.shields.io/badge/Swift-4.0-green.svg?style=flat)](https://swift.org/)
+[![Swift 5.0](https://img.shields.io/badge/Swift-5.0-green.svg?style=flat)](https://swift.org/)
 [![Travis](https://travis-ci.org/PGSSoft/PuzzleMaker.svg?branch=master)](https://travis-ci.org/PGSSoft/PuzzleMaker.svg?branch=master)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/PuzzleMaker.svg)](https://cocoapods.org/pods/PuzzleMaker)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
@@ -38,18 +38,24 @@ import PuzzleMaker
 ```
 
 ```swift
-let puzzleMaker = PuzzleMaker(image: UIImage(named: "image")!, numRows: 3, numColumns: 5)
-puzzleMaker.generatePuzzles { (throwableClosure) in
-	do {
-		let puzzleElements = try throwableClosure()
-		for row in 0 ..< 3 {
-			for column in 0 ..< 5 {
-				let puzzleElement = puzzleElements[row][column]!
-				// Do something with the single puzzle
-			}
-		}
-	} catch let error {
-		// Handle error
+let puzzleMaker = PuzzleMaker(image: UIImage(named: "image")!, numRows: ViewController.numRows, numColumns: ViewController.numColumns)
+        puzzleMaker.generatePuzzles { throwableClosure in
+            do {
+                let puzzleElements = try throwableClosure()
+                for row in 0 ..< ViewController.numRows {
+                    for column in 0 ..< ViewController.numColumns {
+                        guard let puzzleElement = puzzleElements[row][column] else { continue }
+                        let position = puzzleElement.position
+                        let image = puzzleElement.image
+                        let imgView = UIImageView(frame: CGRect(x: position.x, y: position.y, width: image.size.width, height: image.size.height))
+                        imgView.image = image
+                        self.view.addSubview(imgView)
+                    }
+                }
+
+            } catch {
+                debugPrint(error)
+            }
 	}
 }
 ```
