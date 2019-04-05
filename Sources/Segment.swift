@@ -40,11 +40,11 @@ public struct Segment {
     // MARK: Methods
 
     /**
-	 Loops through all cubic bezier curves and set all y positions to 0
-	 */
+     Loops through all cubic bezier curves and set all y positions to 0
+     */
     public mutating func makeFlat() {
         var cubicBezierCurvesTmp = [CubicBezierCurve]()
-        cubicBezierCurves.forEach { (cubicBezier) in
+        cubicBezierCurves.forEach { cubicBezier in
             let point = CGPoint(x: cubicBezier.point.x, y: 0)
             let controlPoint1 = CGPoint(x: cubicBezier.controlPoint1.x, y: 0)
             let controlPoint2 = CGPoint(x: cubicBezier.controlPoint2.x, y: 0)
@@ -54,11 +54,11 @@ public struct Segment {
     }
 
     /**
-	 Loops through all cubic bezier curves and set all y positions to -y (horizontal mirror)
-	 */
+     Loops through all cubic bezier curves and set all y positions to -y (horizontal mirror)
+     */
     public mutating func mirror() {
         var cubicBezierCurvesTmp = [CubicBezierCurve]()
-        cubicBezierCurves.forEach { (cubicBezier) in
+        cubicBezierCurves.forEach { cubicBezier in
             let point = CGPoint(x: cubicBezier.point.x, y: -cubicBezier.point.y)
             let controlPoint1 = CGPoint(x: cubicBezier.controlPoint1.x, y: -cubicBezier.controlPoint1.y)
             let controlPoint2 = CGPoint(x: cubicBezier.controlPoint2.x, y: -cubicBezier.controlPoint2.y)
@@ -68,14 +68,14 @@ public struct Segment {
     }
 
     /**
-	 Loops through all cubic bezier curves and apply scale transform
+     Loops through all cubic bezier curves and apply scale transform
 
-	 - parameter sxFactor: The factor by which to scale the x-axis of the coordinate system
-	 - parameter syFactor: The factor by which to scale the y-axis of the coordinate system
-	 */
+     - parameter sxFactor: The factor by which to scale the x-axis of the coordinate system
+     - parameter syFactor: The factor by which to scale the y-axis of the coordinate system
+     */
     public mutating func scale(_ sxFactor: CGFloat, syFactor: CGFloat) {
         var cubicBezierCurvesTmp = [CubicBezierCurve]()
-        cubicBezierCurves.forEach { (cubicBezier) in
+        cubicBezierCurves.forEach { cubicBezier in
             let transform = CGAffineTransform(scaleX: sxFactor, y: syFactor)
             let point = CGPoint(x: cubicBezier.point.x, y: cubicBezier.point.y).applying(transform)
             let controlPoint1 = CGPoint(x: cubicBezier.controlPoint1.x, y: cubicBezier.controlPoint1.y).applying(transform)
@@ -86,13 +86,13 @@ public struct Segment {
     }
 
     /**
-	 Loops through all cubic bezier curves and apply rotation transform (only y value, x is permanently set to 0)
+     Loops through all cubic bezier curves and apply rotation transform (only y value, x is permanently set to 0)
 
-	 - parameter tyValue: The value by which to move y values with the affine transform
-	 */
+     - parameter tyValue: The value by which to move y values with the affine transform
+     */
     public mutating func rotate(forYValue tyValue: CGFloat) {
         var cubicBezierCurvesTmp = [CubicBezierCurve]()
-        cubicBezierCurves.forEach { (cubicBezier) in
+        cubicBezierCurves.forEach { cubicBezier in
             let transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2)).translatedBy(x: 0, y: tyValue)
             let point = cubicBezier.point.applying(transform)
             let controlPoint1 = cubicBezier.controlPoint1.applying(transform)

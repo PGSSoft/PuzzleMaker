@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name = 'PuzzleMaker'
-    s.version = '1.0.6'
+    s.version = '1.2.0'
     s.license = 'MIT'
     s.summary = 'Swift framework responsible for generating puzzles from the image'
     s.homepage = 'https://github.com/PGSSoft/PuzzleMaker'

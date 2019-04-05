@@ -6,8 +6,8 @@
 //  Copyright © 2016 Paweł Kania. All rights reserved.
 //
 
-import UIKit
 import PuzzleMaker
+import UIKit
 
 class ViewController: UIViewController {
 
@@ -18,12 +18,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         let puzzleMaker = PuzzleMaker(image: UIImage(named: "image")!, numRows: ViewController.numRows, numColumns: ViewController.numColumns)
-        puzzleMaker.generatePuzzles { (throwableClosure) in
+        puzzleMaker.generatePuzzles { throwableClosure in
             do {
                 let puzzleElements = try throwableClosure()
                 for row in 0 ..< ViewController.numRows {
                     for column in 0 ..< ViewController.numColumns {
-                        let puzzleElement = puzzleElements[row][column]
+                        guard let puzzleElement = puzzleElements[row][column] else { continue }
                         let position = puzzleElement.position
                         let image = puzzleElement.image
                         let imgView = UIImageView(frame: CGRect(x: position.x, y: position.y, width: image.size.width, height: image.size.height))
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
                     }
                 }
 
-            } catch let error {
+            } catch {
                 debugPrint(error)
             }
         }

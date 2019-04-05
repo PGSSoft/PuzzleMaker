@@ -13,12 +13,12 @@ extension UIImage {
     // MARK: Methods
 
     /**
-	 Crops image to a rect
+     Crops image to a rect
 
-	 - parameter rect: Rect of the cropped image
+     - parameter rect: Rect of the cropped image
 
-	 - returns: Cropped image. Might be nil if the rect parameter defines an area that is not in the image
-	 */
+     - returns: Cropped image. Might be nil if the rect parameter defines an area that is not in the image
+     */
     public func cropImage(toRect rect: CGRect) -> UIImage? {
         if let cgImage = cgImage, let croppedImage = cgImage.cropping(to: rect) {
             return UIImage(cgImage: croppedImage, scale: scale, orientation: imageOrientation)
@@ -27,12 +27,12 @@ extension UIImage {
     }
 
     /**
-	 Clips image to a bezier path
+     Clips image to a bezier path
 
-	 - parameter path: Bezier path
+     - parameter path: Bezier path
 
-	 - returns: Clipped image
-	 */
+     - returns: Clipped image
+     */
     public func clipImage(toPath path: UIBezierPath) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
 
@@ -54,15 +54,15 @@ extension UIImage {
     }
 
     /**
-	 Adds inner shadow to the image
+     Adds inner shadow to the image
 
-	 - parameter path:             Path on which shadow should be routed
-	 - parameter shadowColor:      Color used for the shadow
-	 - parameter shadowOffset:     Offset in user space of the shadow from the original drawing
-	 - parameter shadowBlurRadius: Blur radius of the shadow
+     - parameter path:             Path on which shadow should be routed
+     - parameter shadowColor:      Color used for the shadow
+     - parameter shadowOffset:     Offset in user space of the shadow from the original drawing
+     - parameter shadowBlurRadius: Blur radius of the shadow
 
-	 - returns: New image with inner shadow
-	 */
+     - returns: New image with inner shadow
+     */
     public func applyInnerShadow(forPath path: UIBezierPath, shadowColor: UIColor, shadowOffset: CGSize, shadowBlurRadius: CGFloat) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
 

@@ -15,7 +15,7 @@ import UIKit
  - invalidImageSize: Might happen when cropping image in case, when the rect parameter defines an area that is not in the image
  */
 public enum PuzzleMakerError: Error {
-    case invalidGridSize, invalidImageSize
+    case invalidGridSize, invalidImageSize, puzzleUnitUnavailable
 }
 
 /**
@@ -53,14 +53,14 @@ public struct PuzzleMaker {
     // MARK: Methods
 
     /**
-	 Asynchronously generates set of the puzzles
+     Asynchronously generates set of the puzzles
 
-	 - parameter completion: Throwable closure so you need 'try catch' it. On success it returns [[PuzzleElement]], otherwise handle error. See attached example
-	 */
-    public func generatePuzzles(_ completion: @escaping (_ throwableClosure: () throws -> [[PuzzleElement]]) -> Void) {
+     - parameter completion: Throwable closure so you need 'try catch' it. On success it returns [[PuzzleElement]], otherwise handle error. See attached example
+     */
+    public func generatePuzzles(_ completion: @escaping (_ throwableClosure: () throws -> [[PuzzleElement?]]) -> Void) {
         // Number of rows or columns cannot be less than 2
         if numRows < 2 || numColumns < 2 {
-            completion({ throw PuzzleMakerError.invalidGridSize })
+            completion { throw PuzzleMakerError.invalidGridSize }
             return
         }
 
@@ -71,72 +71,85 @@ public struct PuzzleMaker {
         let group = DispatchGroup()
 
         // Multidimensional array for final puzzle elements
-        var puzzleElements = [[PuzzleElement!]](repeating: [PuzzleElement!](repeating: nil, count: numColumns), count: numRows)
+        var puzzleElements = [[PuzzleElement?]](repeating: [PuzzleElement?](repeating: nil, count: numColumns), count: numRows)
 
         // First, all puzzle units must be generated and stored somewhere
-        var puzzleUnits = [[PuzzleUnit!]](repeating: [PuzzleUnit!](repeating: nil, count: numColumns), count: numRows)
-        var puzzleUnit: PuzzleUnit!
+        var puzzleUnits = [[PuzzleUnit?]](repeating: [PuzzleUnit?](repeating: nil, count: numColumns), count: numRows)
+        var puzzleUnit: PuzzleUnit?
 
         // Flag which indicates if there was a problem in generating at least one puzzle element. True means total failure and raises exception
         var invalidImageSize = false
+        // Flag which indicates that for some reason, puzzle unit could not be created
+        var puzzleUnitUnavailable = false
 
         // The order matters (row and column) - top and left edge of each puzzle unit must be known before generating next item
-        // You might think that we'll kill many kitties in code below, but... It's just your imagination... No animals were harmed while executing this code! Cats are in the box and they're fine Mr. Schrödinger! 🐱!
+
         /*
 
-		 Cheatsheet:
+         Cheatsheet:
 
-		 ┌───┬───┬───┐
-		 │ 0 │ 1 │ 2 │
-		 ├───┼───┼───┤
-		 │ 3 │ 4 │ 5 │
-		 ├───┼───┼───┤
-		 │ 6 │ 7 │ 8 │
-		 └───┴───┴───┘
+         ┌───┬───┬───┐
+         │ 0 │ 1 │ 2 │
+         ├───┼───┼───┤
+         │ 3 │ 4 │ 5 │
+         ├───┼───┼───┤
+         │ 6 │ 7 │ 8 │
+         └───┴───┴───┘
 
-		 */
+         */
+
+        let throwException = { completion { throw PuzzleMakerError.puzzleUnitUnavailable } }
+
+        func getPuzzleUnit(_ row: Int, _ col: Int) -> PuzzleUnit? {
+            if puzzleUnits.count > row - 1, row >= 0 {
+                let rows = puzzleUnits[row]
+                if rows.count > col - 1, col >= 0 {
+                    return puzzleUnits[row][col]
+                } else {
+                    return nil
+                }
+            } else {
+                return nil
+            }
+        }
 
         for row in 0 ..< numRows {
             for column in 0 ..< numColumns {
                 switch (row, column) {
-                    // Cheatsheet: 0
+                // Cheatsheet: 0
                 case (0, 0):
                     puzzleUnit = PuzzleUnitFactory.generatePuzzleUnit(forSize: puzzleUnitSize, topEdge: .flat, rightEdge: .missing, bottomEdge: .missing, leftEdge: .flat)
-                    // Cheatsheet: 2
-                case (let r, let c) where r == 0 && c == numColumns - 1:
-                    let leftNeighbor = puzzleUnits[r][c - 1]!
+                // Cheatsheet: 2
+                case let (r, c) where r == 0 && c == numColumns - 1:
+                    guard let leftNeighbor = getPuzzleUnit(r, c - 1) else { return throwException() }
                     puzzleUnit = PuzzleUnitFactory.generatePuzzleUnit(forSize: puzzleUnitSize, topEdge: .flat, rightEdge: .flat, bottomEdge: .missing, leftEdge: .mirror(leftNeighbor.rightSegment))
-                    // Cheatsheet: 6
-                case (let r, let c) where r == numRows - 1 && c == 0:
-                    let topNeighbor = puzzleUnits[r - 1][c]!
+                // Cheatsheet: 6
+                case let (r, c) where r == numRows - 1 && c == 0:
+                    guard let topNeighbor = getPuzzleUnit(r - 1, c) else { return throwException() }
                     puzzleUnit = PuzzleUnitFactory.generatePuzzleUnit(forSize: puzzleUnitSize, topEdge: .mirror(topNeighbor.bottomSegment), rightEdge: .missing, bottomEdge: .flat, leftEdge: .flat)
-                    // Cheatsheet: 8
-                case (let r, let c) where r == numRows - 1 && c == numColumns - 1:
-                    let topNeighbor = puzzleUnits[r - 1][c]!
-                    let leftNeighbor = puzzleUnits[r][c - 1]!
+                // Cheatsheet: 8
+                case let (r, c) where r == numRows - 1 && c == numColumns - 1:
+                    guard let topNeighbor = getPuzzleUnit(r - 1, c), let leftNeighbor = getPuzzleUnit(r, c - 1) else { return throwException() }
                     puzzleUnit = PuzzleUnitFactory.generatePuzzleUnit(forSize: puzzleUnitSize, topEdge: .mirror(topNeighbor.bottomSegment), rightEdge: .flat, bottomEdge: .flat, leftEdge: .mirror(leftNeighbor.rightSegment))
-                    // Cheatsheet: 1
-                case (let r, let c) where r == 0:
-                    let leftNeighbor = puzzleUnits[r][c - 1]!
+                // Cheatsheet: 1
+                case let (r, c) where r == 0:
+                    guard let leftNeighbor = getPuzzleUnit(r, c - 1) else { return throwException() }
                     puzzleUnit = PuzzleUnitFactory.generatePuzzleUnit(forSize: puzzleUnitSize, topEdge: .flat, rightEdge: .missing, bottomEdge: .missing, leftEdge: .mirror(leftNeighbor.rightSegment))
-                    // Cheatsheet: 5
-                case (let r, let c) where c == numColumns - 1:
-                    let topNeighbor = puzzleUnits[r - 1][c]!
-                    let leftNeighbor = puzzleUnits[r][c - 1]!
+                // Cheatsheet: 5
+                case let (r, c) where c == numColumns - 1:
+                    guard let topNeighbor = getPuzzleUnit(r - 1, c), let leftNeighbor = getPuzzleUnit(r, c - 1) else { return throwException() }
                     puzzleUnit = PuzzleUnitFactory.generatePuzzleUnit(forSize: puzzleUnitSize, topEdge: .mirror(topNeighbor.bottomSegment), rightEdge: .flat, bottomEdge: .missing, leftEdge: .mirror(leftNeighbor.rightSegment))
-                    // Cheatsheet: 7
-                case (let r, let c) where r == numRows - 1:
-                    let topNeighbor = puzzleUnits[r - 1][c]!
-                    let leftNeighbor = puzzleUnits[r][c - 1]!
+                // Cheatsheet: 7
+                case let (r, c) where r == numRows - 1:
+                    guard let topNeighbor = getPuzzleUnit(r - 1, c), let leftNeighbor = getPuzzleUnit(r, c - 1) else { return throwException() }
                     puzzleUnit = PuzzleUnitFactory.generatePuzzleUnit(forSize: puzzleUnitSize, topEdge: .mirror(topNeighbor.bottomSegment), rightEdge: .missing, bottomEdge: .flat, leftEdge: .mirror(leftNeighbor.rightSegment))
-                    // Cheatsheet: 3
-                case (let r, let c) where c == 0:
-                    let topNeighbor = puzzleUnits[r - 1][c]!
+                // Cheatsheet: 3
+                case let (r, c) where c == 0:
+                    guard let topNeighbor = getPuzzleUnit(r - 1, c) else { return throwException() }
                     puzzleUnit = PuzzleUnitFactory.generatePuzzleUnit(forSize: puzzleUnitSize, topEdge: .mirror(topNeighbor.bottomSegment), rightEdge: .missing, bottomEdge: .missing, leftEdge: .flat)
-                    // Cheatsheet: 4
-                case (let r, let c):
-                    let topNeighbor = puzzleUnits[r - 1][c]!
-                    let leftNeighbor = puzzleUnits[r][c - 1]!
+                // Cheatsheet: 4
+                case let (r, c):
+                    guard let topNeighbor = getPuzzleUnit(r - 1, c), let leftNeighbor = getPuzzleUnit(r, c - 1) else { return throwException() }
                     puzzleUnit = PuzzleUnitFactory.generatePuzzleUnit(forSize: puzzleUnitSize, topEdge: .mirror(topNeighbor.bottomSegment), rightEdge: .missing, bottomEdge: .missing, leftEdge: .mirror(leftNeighbor.rightSegment))
                 }
 
@@ -150,7 +163,12 @@ public struct PuzzleMaker {
                         return
                     }
 
-                    let puzzleUnit: PuzzleUnit = puzzleUnits[row][column]
+                    guard let puzzleUnit = puzzleUnits[row][column] else {
+                        puzzleUnitUnavailable = true
+                        group.leave()
+                        return
+                    }
+
                     let path = puzzleUnit.path
 
                     // Because we must fix X and Y position, we need to know offset. Outer height for top and left segment will be useful
@@ -199,10 +217,12 @@ public struct PuzzleMaker {
             debugPrint("Puzzles generated in: \(executionTime) second(s)")
 
             DispatchQueue.main.async {
-                if !invalidImageSize {
-                    completion({ puzzleElements })
+                if invalidImageSize {
+                    completion { throw PuzzleMakerError.invalidImageSize }
+                } else if puzzleUnitUnavailable {
+                    completion { throw PuzzleMakerError.puzzleUnitUnavailable }
                 } else {
-                    completion({ throw PuzzleMakerError.invalidImageSize })
+                    completion { puzzleElements }
                 }
             }
         }

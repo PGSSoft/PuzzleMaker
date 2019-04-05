@@ -40,16 +40,16 @@ public struct PuzzleUnitFactory {
     // MARK: Methods
 
     /**
-	 Generates complete puzzle unit for indicated size and desired edges
+     Generates complete puzzle unit for indicated size and desired edges
 
-	 - parameter size:       Size of the puzzle unit (final value might be bigger, due to outer edges)
-	 - parameter topEdge:    Desired top edge
-	 - parameter rightEdge:  Desired right edge
-	 - parameter bottomEdge: Desired bottom edge
-	 - parameter leftEdge:   Desired left edge
+     - parameter size:       Size of the puzzle unit (final value might be bigger, due to outer edges)
+     - parameter topEdge:    Desired top edge
+     - parameter rightEdge:  Desired right edge
+     - parameter bottomEdge: Desired bottom edge
+     - parameter leftEdge:   Desired left edge
 
-	 - returns: Complete puzzle unit with individual segments (edges) and path (concatenation of all segments)
-	 */
+     - returns: Complete puzzle unit with individual segments (edges) and path (concatenation of all segments)
+     */
     public static func generatePuzzleUnit(forSize size: CGSize, topEdge: PuzzleEdge, rightEdge: PuzzleEdge, bottomEdge: PuzzleEdge, leftEdge: PuzzleEdge) -> PuzzleUnit {
         // Segments which will be held by puzzle unit and these segments will be used to generate next units
         var topSegment: Segment!
@@ -71,7 +71,7 @@ public struct PuzzleUnitFactory {
             fallthrough
         case .missing:
             topSegment.scale(size.width, syFactor: size.height)
-        case .mirror(var segment):
+        case var .mirror(segment):
             segment.mirror()
             topSegment = segment
         }
@@ -89,7 +89,7 @@ public struct PuzzleUnitFactory {
             if Bool.random { // Pick up randomly whether segment should be 'outer' or 'inner'
                 rightSegment.mirror()
             }
-        case .mirror(var segment):
+        case var .mirror(segment):
             segment.mirror()
             rightSegment = segment
         }
@@ -108,7 +108,7 @@ public struct PuzzleUnitFactory {
             if Bool.random {
                 bottomSegment.mirror()
             }
-        case .mirror(var segment):
+        case var .mirror(segment):
             segment.mirror()
             bottomSegment = segment
         }
@@ -125,7 +125,7 @@ public struct PuzzleUnitFactory {
             fallthrough
         case .missing:
             leftSegment.scale(size.height, syFactor: size.height)
-        case .mirror(var segment):
+        case var .mirror(segment):
             segment.mirror()
             leftSegment = segment
         }

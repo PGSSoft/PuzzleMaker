@@ -3,6 +3,8 @@ disabled_rules:
   - type_name
   - file_length
   - fallthrough
+  - identifier_name
+  - cyclomatic_complexity
   
 function_body_length:
   - 100 # warning

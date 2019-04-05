@@ -6,8 +6,8 @@
 //
 //
 
-import XCTest
 @testable import PuzzleMaker
+import XCTest
 
 class PuzzleMakerTests: XCTestCase {
 
@@ -31,7 +31,7 @@ class PuzzleMakerTests: XCTestCase {
 
         let asyncExpectation = expectation(description: "Asynchronously generating puzzles")
 
-        puzzleMaker.generatePuzzles { (throwableClosure) in
+        puzzleMaker.generatePuzzles { throwableClosure in
             let puzzleElements = try! throwableClosure()
 
             XCTAssertTrue(puzzleElements.count == numRows)
@@ -56,11 +56,11 @@ class PuzzleMakerTests: XCTestCase {
 
         let asyncExpectation = expectation(description: "Asynchronously generating puzzles")
 
-        puzzleMaker.generatePuzzles { (throwableClosure) in
+        puzzleMaker.generatePuzzles { throwableClosure in
             do {
                 _ = try throwableClosure()
                 XCTFail("Should throw exception")
-            } catch let error {
+            } catch {
                 XCTAssertTrue(error as! PuzzleMakerError == PuzzleMakerError.invalidGridSize)
             }
             asyncExpectation.fulfill()
@@ -84,11 +84,11 @@ class PuzzleMakerTests: XCTestCase {
 
         let asyncExpectation = expectation(description: "Asynchronously generating puzzles")
 
-        puzzleMaker.generatePuzzles { (throwableClosure) in
+        puzzleMaker.generatePuzzles { throwableClosure in
             do {
                 _ = try throwableClosure()
                 XCTFail("Should throw exception")
-            } catch let error {
+            } catch {
                 XCTAssertTrue(error as! PuzzleMakerError == PuzzleMakerError.invalidImageSize)
             }
             asyncExpectation.fulfill()
@@ -169,42 +169,53 @@ class PuzzleMakerTests: XCTestCase {
         let lower = 0.3333
         let upper = 0.9999
 
-        let random0 = Double.randomInRange(lower, upper)
+        let random0 = Double.random(in: lower ... upper)
         XCTAssertTrue(random0 >= lower && random0 <= upper)
 
-        let random1 = Double.randomInRange(lower, upper)
+        let random1 = Double.random(in: lower ... upper)
         XCTAssertTrue(random1 >= lower && random1 <= upper)
 
-        let random2 = Double.randomInRange(lower, upper)
+        let random2 = Double.random(in: lower ... upper)
         XCTAssertTrue(random2 >= lower && random2 <= upper)
 
-        let random3 = Double.randomInRange(lower, upper)
+        let random3 = Double.random(in: lower ... upper)
         XCTAssertTrue(random3 >= lower && random3 <= upper)
 
-        let random4 = Double.randomInRange(lower, upper)
+        let random4 = Double.random(in: lower ... upper)
         XCTAssertTrue(random4 >= lower && random4 <= upper)
 
-        let random5 = Double.randomInRange(lower, upper)
+        let random5 = Double.random(in: lower ... upper)
         XCTAssertTrue(random5 >= lower && random5 <= upper)
 
-        let random6 = Double.randomInRange(lower, upper)
+        let random6 = Double.random(in: lower ... upper)
         XCTAssertTrue(random6 >= lower && random6 <= upper)
 
-        let random7 = Double.randomInRange(lower, upper)
+        let random7 = Double.random(in: lower ... upper)
         XCTAssertTrue(random7 >= lower && random7 <= upper)
 
-        let random8 = Double.randomInRange(lower, upper)
+        let random8 = Double.random(in: lower ... upper)
         XCTAssertTrue(random8 >= lower && random8 <= upper)
 
-        let random9 = Double.randomInRange(lower, upper)
+        let random9 = Double.random(in: lower ... upper)
         XCTAssertTrue(random9 >= lower && random9 <= upper)
+    }
+
+    func testArrayExtension() {
+        let array = [1, 2, 3]
+        XCTAssertTrue(array[safe: 0] != nil)
+        XCTAssertTrue(array[safe: 1] != nil)
+        XCTAssertTrue(array[safe: 2] != nil)
+        XCTAssertTrue(array[safe: 3] == nil)
+        XCTAssertTrue(array[safe: 999_999] == nil)
+        XCTAssertTrue(array[safe: -1] == nil)
+        XCTAssertTrue(array[safe: -999_999] == nil)
     }
 
     // MARK: - Helpers
 
     func checkFlattenedSegment(_ segment: Segment) {
         XCTAssertTrue(segment.cubicBezierCurves.count == 4)
-        segment.cubicBezierCurves.forEach { (cubicBezierCurve) in
+        segment.cubicBezierCurves.forEach { cubicBezierCurve in
             XCTAssertTrue(cubicBezierCurve.point.y == 0)
             XCTAssertTrue(cubicBezierCurve.controlPoint1.y == 0)
             XCTAssertTrue(cubicBezierCurve.controlPoint2.y == 0)
@@ -215,9 +226,9 @@ class PuzzleMakerTests: XCTestCase {
         let segmentPattern = PuzzleUnitFactory.segmentPattern
         XCTAssertTrue(segment.cubicBezierCurves.count == 4)
         for (idx, cubicBezierCurve) in segment.cubicBezierCurves.enumerated() {
-            XCTAssertTrue(fabs(cubicBezierCurve.point.y) - fabs(segmentPattern.cubicBezierCurves[idx].point.y) == 0.0)
-            XCTAssertTrue(fabs(cubicBezierCurve.controlPoint1.y) - fabs(segmentPattern.cubicBezierCurves[idx].controlPoint1.y) == 0.0)
-            XCTAssertTrue(fabs(cubicBezierCurve.controlPoint2.y) - fabs(segmentPattern.cubicBezierCurves[idx].controlPoint2.y) == 0.0)
+            XCTAssertTrue(abs(cubicBezierCurve.point.y) - abs(segmentPattern.cubicBezierCurves[idx].point.y) == 0.0)
+            XCTAssertTrue(abs(cubicBezierCurve.controlPoint1.y) - abs(segmentPattern.cubicBezierCurves[idx].controlPoint1.y) == 0.0)
+            XCTAssertTrue(abs(cubicBezierCurve.controlPoint2.y) - abs(segmentPattern.cubicBezierCurves[idx].controlPoint2.y) == 0.0)
         }
     }
 
@@ -238,12 +249,12 @@ class PuzzleMakerTests: XCTestCase {
         let segmentPattern = PuzzleUnitFactory.segmentPattern
         XCTAssertTrue(segment.cubicBezierCurves.count == 4)
         for (idx, cubicBezierCurve) in segment.cubicBezierCurves.enumerated() {
-            XCTAssertTrue(fabs(cubicBezierCurve.point.x) == fabs(segmentPattern.cubicBezierCurves[idx].point.x * scale.width))
-            XCTAssertTrue(fabs(cubicBezierCurve.point.y) == fabs(segmentPattern.cubicBezierCurves[idx].point.y * scale.height))
-            XCTAssertTrue(fabs(cubicBezierCurve.controlPoint1.x) == fabs(segmentPattern.cubicBezierCurves[idx].controlPoint1.x * scale.width))
-            XCTAssertTrue(fabs(cubicBezierCurve.controlPoint1.y) == fabs(segmentPattern.cubicBezierCurves[idx].controlPoint1.y * scale.height))
-            XCTAssertTrue(fabs(cubicBezierCurve.controlPoint2.x) == fabs(segmentPattern.cubicBezierCurves[idx].controlPoint2.x * scale.width))
-            XCTAssertTrue(fabs(cubicBezierCurve.controlPoint2.y) == fabs(segmentPattern.cubicBezierCurves[idx].controlPoint2.y * scale.height))
+            XCTAssertTrue(abs(cubicBezierCurve.point.x) == abs(segmentPattern.cubicBezierCurves[idx].point.x * scale.width))
+            XCTAssertTrue(abs(cubicBezierCurve.point.y) == abs(segmentPattern.cubicBezierCurves[idx].point.y * scale.height))
+            XCTAssertTrue(abs(cubicBezierCurve.controlPoint1.x) == abs(segmentPattern.cubicBezierCurves[idx].controlPoint1.x * scale.width))
+            XCTAssertTrue(abs(cubicBezierCurve.controlPoint1.y) == abs(segmentPattern.cubicBezierCurves[idx].controlPoint1.y * scale.height))
+            XCTAssertTrue(abs(cubicBezierCurve.controlPoint2.x) == abs(segmentPattern.cubicBezierCurves[idx].controlPoint2.x * scale.width))
+            XCTAssertTrue(abs(cubicBezierCurve.controlPoint2.y) == abs(segmentPattern.cubicBezierCurves[idx].controlPoint2.y * scale.height))
         }
     }
 
